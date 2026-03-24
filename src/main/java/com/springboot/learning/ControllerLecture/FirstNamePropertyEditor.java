@@ -1,4 +1,4 @@
-package com.springboot.learning.Controllers;
+package com.springboot.learning.ControllerLecture;
 
 import java.beans.PropertyEditorSupport;
 

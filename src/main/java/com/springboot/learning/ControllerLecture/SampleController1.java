@@ -1,4 +1,4 @@
-package com.springboot.learning.Controllers;
+package com.springboot.learning.ControllerLecture;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
