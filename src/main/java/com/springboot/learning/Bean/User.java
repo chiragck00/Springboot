@@ -1,12 +1,11 @@
-package com.springboot.learning.ControllerLecture;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
+package com.springboot.learning.Bean;
 
 public class User {
-    @JsonProperty(value = "fName", required = false)
-    String name;
-    String email;
+    String name, email;
 
+    public User(String name, String email){
+        System.out.println("Invoke User Parameterized");
+    }
 
     public String getName() {
         return name;
