@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import javax.sql.DataSource;
@@ -26,6 +27,9 @@ public class AppConfig {
     }
     @Bean
     public TransactionTemplate transactionTemplate(PlatformTransactionManager manager){
+        TransactionTemplate transactionTemplate = new TransactionTemplate(manager);
+        transactionTemplate.setName("Transaction Name");
+        transactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_MANDATORY);
         return new TransactionTemplate(manager);
     }
 }

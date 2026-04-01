@@ -2,7 +2,9 @@ package com.springboot.learning.Transactional.Programmatic.Approach1;
 
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 @Component
 public class firstWay {
@@ -13,7 +15,10 @@ public class firstWay {
     }
 
     public void update(){
-        TransactionStatus status = ptm.getTransaction(null);
+        DefaultTransactionDefinition defaultTransactionDefinition = new DefaultTransactionDefinition();
+        defaultTransactionDefinition.setName("Transaction Name");
+        defaultTransactionDefinition.setPropagationBehavior(TransactionDefinition.PROPAGATION_MANDATORY);
+        TransactionStatus status = ptm.getTransaction(defaultTransactionDefinition);
         try{
             System.out.println("Logic");
             ptm.commit(status);
