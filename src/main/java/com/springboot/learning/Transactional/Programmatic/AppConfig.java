@@ -30,6 +30,6 @@ public class AppConfig {
         TransactionTemplate transactionTemplate = new TransactionTemplate(manager);
         transactionTemplate.setName("Transaction Name");
         transactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_MANDATORY);
-        return new TransactionTemplate(manager);
+        return transactionTemplate;
     }
 }

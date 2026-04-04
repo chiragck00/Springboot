@@ -15,7 +15,7 @@ public class Controllerdeclarative {
     @Autowired
     private DataSource dataSource;
 
-    @Transactional(value = "userManager", propagation = Propagation.MANDATORY)
+    @Transactional(transactionManager = "userManager", propagation = Propagation.REQUIRES_NEW)
     @GetMapping("/test")
     public void update() throws Exception{
         Connection conn = dataSource.getConnection();
