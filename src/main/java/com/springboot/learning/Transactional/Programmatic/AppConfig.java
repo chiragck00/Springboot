@@ -29,6 +29,7 @@ public class AppConfig {
     public TransactionTemplate transactionTemplate(PlatformTransactionManager manager){
         TransactionTemplate transactionTemplate = new TransactionTemplate(manager);
         transactionTemplate.setName("Transaction Name");
+        transactionTemplate.setIsolationLevel(TransactionDefinition.ISOLATION_SERIALIZABLE);
         transactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_MANDATORY);
         return transactionTemplate;
     }
