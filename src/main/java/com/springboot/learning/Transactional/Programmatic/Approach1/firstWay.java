@@ -17,6 +17,7 @@ public class firstWay {
     public void update(){
         DefaultTransactionDefinition defaultTransactionDefinition = new DefaultTransactionDefinition();
         defaultTransactionDefinition.setName("Transaction Name");
+        defaultTransactionDefinition.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
         defaultTransactionDefinition.setPropagationBehavior(TransactionDefinition.PROPAGATION_MANDATORY);
         TransactionStatus status = ptm.getTransaction(defaultTransactionDefinition);
         try{
