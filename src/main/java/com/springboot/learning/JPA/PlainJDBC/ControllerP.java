@@ -7,12 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 public class ControllerP {
+
     @GetMapping("/plain")
-    public void execute(){
+    public void printUser(){
         UserDAO userDAO = new UserDAO();
-        userDAO.createUserTable();
-        userDAO.createUser("ch", 32);
-        userDAO.createUser("ms", 30);
-        userDAO.fetchAll();
+        userDAO.createTable();
+        userDAO.createUser("ch", 23);
+        userDAO.createUser("ms", 25);
+        userDAO.fetchUsers();
     }
+
 }

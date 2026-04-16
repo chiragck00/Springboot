@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class DBConnection {
     public Connection getConnection(){
-        try{
+        try {
             Class.forName("org.h2.Driver");
-            return DriverManager.getConnection("jdbc:h2:mem:userdb", "sa", "");
+            return DriverManager.getConnection("jdbc:h2:mem:userDb", "sa", "");
         }catch (ClassNotFoundException | SQLException ex){
 
         }
