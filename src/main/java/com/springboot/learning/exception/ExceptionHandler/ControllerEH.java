@@ -27,26 +27,26 @@ public class ControllerEH {
         throw new CustomException("Custom Exception", HttpStatus.FORBIDDEN);
     }
 
-//    @ExceptionHandler({CustomException.class, IllegalArgumentException.class})
-//    public ResponseEntity<ErrorClass> throwError(Exception ex){
-//        ErrorClass error = new ErrorClass(ex.getMessage(), HttpStatus.BAD_GATEWAY.value(), new Date());
-//        return new ResponseEntity<>(error, HttpStatus.BAD_GATEWAY);
-//    }
+    @ExceptionHandler({CustomException.class, IllegalArgumentException.class})
+    public ResponseEntity<ErrorClass> throwError(Exception ex){
+        ErrorClass error = new ErrorClass(ex.getMessage(), HttpStatus.BAD_GATEWAY.value(), new Date());
+        return new ResponseEntity<>(error, HttpStatus.BAD_GATEWAY);
+    }
 
-//    @ExceptionHandler(CustomException.class)
-//    public void handleError(HttpServletResponse response, CustomException ex) throws IOException {
-//        response.sendError(ex.getStatus().value(), ex.getMessage() + " ");
-//    }
+    @ExceptionHandler(CustomException.class)
+    public void handleError(HttpServletResponse response, CustomException ex) throws IOException {
+        response.sendError(ex.getStatus().value(), ex.getMessage() + " ");
+    }
 
-//    @ExceptionHandler(CustomException.class)
-//    public ResponseEntity<ErrorClass> throwError(CustomException ex){
-//        ErrorClass error = new ErrorClass(ex.getMessage(), ex.getStatus().value(), new Date());
-//        return new ResponseEntity<>(error, ex.getStatus());
-//    }
+    @ExceptionHandler(CustomException.class)
+    public ResponseEntity<ErrorClass> throwError(CustomException ex){
+        ErrorClass error = new ErrorClass(ex.getMessage(), ex.getStatus().value(), new Date());
+        return new ResponseEntity<>(error, ex.getStatus());
+    }
 
-//    @ExceptionHandler(IllegalArgumentException.class)
-//    public ResponseEntity<ErrorClass> throwError(IllegalArgumentException ex){
-//        ErrorClass error = new ErrorClass(ex.getMessage(), HttpStatus.UNAUTHORIZED.value(), new Date());
-//        return new ResponseEntity<>(error, HttpStatus.UNAUTHORIZED);
-//    }
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorClass> throwError(IllegalArgumentException ex){
+        ErrorClass error = new ErrorClass(ex.getMessage(), HttpStatus.UNAUTHORIZED.value(), new Date());
+        return new ResponseEntity<>(error, HttpStatus.UNAUTHORIZED);
+    }
 }
