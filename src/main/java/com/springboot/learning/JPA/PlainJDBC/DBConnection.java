@@ -5,13 +5,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-    public Connection getConnection(){
+    public Connection getConnection() {
         try {
             Class.forName("org.h2.Driver");
             return DriverManager.getConnection("jdbc:h2:mem:userDb", "sa", "");
-        }catch (ClassNotFoundException | SQLException ex){
-
+        } catch (ClassNotFoundException | SQLException e) {
         }
-        return null;
+        return  null;
     }
 }

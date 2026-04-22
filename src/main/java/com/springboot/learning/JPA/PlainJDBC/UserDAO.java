@@ -9,42 +9,40 @@ public class UserDAO {
             String sql = "CREATE TABLE users(user_id INT AUTO_INCREMENT PRIMARY KEY, user_name VARCHAR(100), age INT)";
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
-        }catch(SQLException ex){
+        }catch (SQLException ex){
 
-        } finally{
+        } finally {
 
         }
     }
-    public void createUser(String user_name, int age){
+
+    public void insertIntoTable(String name, int age){
         try{
             Connection connection = new DBConnection().getConnection();
-            String sql = "INSERT into users(user_name, age) VALUES(?, ?)";
+            String sql = "INSERT INTO users(user_name, age) VALUES (?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, user_name);
+            preparedStatement.setString(1, name);
             preparedStatement.setInt(2, age);
             preparedStatement.executeUpdate();
         } catch (SQLException ex){
 
-        } finally {
+        }finally {
 
         }
     }
-    public void fetchUsers(){
+
+    public void getUsers(){
         try{
             Connection connection = new DBConnection().getConnection();
             String sql = "SELECT * FROM users";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            ResultSet output = preparedStatement.executeQuery();
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet output = statement.executeQuery();
             while(output.next()){
-                String data = output.getInt("user_id") + " " +
-                        output.getString("user_name") + " " +
-                        output.getInt("age");
-
-                System.out.println(data);
+                System.out.println(output.getInt("user_id") + " " + output.getString("user_name") + " " + output.getInt("age"));
             }
-        }catch (SQLException ex){
+        } catch (SQLException ex){
 
-        } finally {
+        }finally {
 
         }
     }
