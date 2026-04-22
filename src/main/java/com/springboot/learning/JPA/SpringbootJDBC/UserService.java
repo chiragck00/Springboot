@@ -3,11 +3,11 @@ package com.springboot.learning.JPA.SpringbootJDBC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class UserService {
+
     @Autowired
     UserRepository userRepository;
 
@@ -15,21 +15,23 @@ public class UserService {
         userRepository.createTable();
     }
 
-    public void insertUsers(){
-        userRepository.createUser("Chirag", 20);
-        userRepository.createUser("Muskaan", 25);
-        userRepository.createUser("Shresth", 30);
+    public void insertIntoTable(String user_name, int age){
+        userRepository.insertIntoTable(user_name, age);
     }
 
-    public List<User> fetchUser(){
-        return userRepository.fetchUsers();
+    public List<User> getAllUsers(){
+        return userRepository.getAllUsers();
     }
 
-    public List<String> fetchAllNames(){
-        return userRepository.fetchAllNames();
+    public void insert(String user_name, int age){
+        userRepository.insert(user_name, age);
     }
 
-    public int countUsers(){
-        return userRepository.countOfUsers();
+    public List<String> getAllNames(){
+        return userRepository.getAllNames();
+    }
+
+    public int count(){
+        return userRepository.countUsers();
     }
 }

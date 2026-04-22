@@ -11,13 +11,14 @@ public class Appconfig {
 
     @Bean
     public DataSource dataSource(){
-        HikariDataSource hikariDataSource = new HikariDataSource();
-        hikariDataSource.setJdbcUrl("jdbc:h2:mem:userDb");
-        hikariDataSource.setDriverClassName("org.h2.Driver");
-        hikariDataSource.setUsername("sa");
-        hikariDataSource.setPassword("");
-        hikariDataSource.setMaximumPoolSize(10);
-        hikariDataSource.setMinimumIdle(5);
-        return hikariDataSource;
+        HikariDataSource hs = new HikariDataSource();
+        hs.setMaximumPoolSize(10);
+        hs.setMinimumIdle(5);
+        hs.setPassword("");
+        hs.setUsername("sa");
+        hs.setJdbcUrl("jdbc:h2:mem:userDb");
+        hs.setDriverClassName("org.h2.Driver");
+        return hs;
     }
+
 }
