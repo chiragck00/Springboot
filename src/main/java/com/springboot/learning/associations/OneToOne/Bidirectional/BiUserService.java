@@ -1,23 +1,23 @@
-package com.springboot.learning.associations.OneToOne.Unidirectional;
+package com.springboot.learning.associations.OneToOne.Bidirectional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class BiUserService {
 
     @Autowired
-    UserRepo userRepo;
+    BiUserRepo userRepo;
 
-    public User saveUser(User user){
+    public BiUser saveUser(BiUser user){
         return userRepo.save(user);
     }
 
-    public User getUser(Long id){
+    public BiUser getUser(Long id){
         return userRepo.findById(id).get();
     }
 
-    public User updateUser(Long id, User user){
+    public BiUser updateUser(Long id, BiUser user){
         return userRepo.save(user);
     }
 

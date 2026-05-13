@@ -1,23 +1,23 @@
-package com.springboot.learning.associations.OneToOne.Unidirectional;
+package com.springboot.learning.associations.OneToOne.Bidirectional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class OrderService {
+public class BiOrderService {
 
     @Autowired
-    OrderRepo orderRepo;
+    BiOrderRepo orderRepo;
 
-    public Order saveOrder(Order order){
+    public BiOrder saveOrder(BiOrder order){
         return orderRepo.save(order);
     }
 
-    public Order getOrder(Long id){
+    public BiOrder getOrder(Long id){
         return orderRepo.findById(id).get();
     }
 
-    public Order updateOrder(Long id, Order order){
+    public BiOrder updateOrder(Long id, BiOrder order){
         return orderRepo.save(order);
     }
 

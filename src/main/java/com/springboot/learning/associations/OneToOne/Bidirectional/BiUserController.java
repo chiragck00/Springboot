@@ -1,26 +1,27 @@
-package com.springboot.learning.associations.OneToOne.Unidirectional;
+package com.springboot.learning.associations.OneToOne.Bidirectional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class UserController {
+@RequestMapping("/bi/user")
+public class BiUserController {
     @Autowired
-    UserService userService;
+    BiUserService userService;
 
     @GetMapping("/get/{id}")
-    public User getUser(@PathVariable Long id){
+    public BiUser getUser(@PathVariable Long id){
         return userService.getUser(id);
     }
 
     @PostMapping("/save")
-    public User saveUser(@RequestBody User user){
+    public BiUser saveUser(@RequestBody BiUser user){
         return userService.saveUser(user);
     }
 
     @PutMapping("/update/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User user){
+    public BiUser updateUser(@PathVariable Long id, @RequestBody BiUser user){
         return userService.updateUser(id, user);
     }
 

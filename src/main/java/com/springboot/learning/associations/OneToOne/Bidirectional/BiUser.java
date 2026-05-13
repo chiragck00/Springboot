@@ -1,10 +1,14 @@
-package com.springboot.learning.associations.OneToOne.Unidirectional;
+package com.springboot.learning.associations.OneToOne.Bidirectional;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "USER_DETAILS")
-public class User {
+@Table(name = "BI_USER_DETAILS")
+@JsonIdentityInfo(property = "id", generator = ObjectIdGenerators.PropertyGenerator.class)
+
+public class BiUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -12,8 +16,9 @@ public class User {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "ORDER_ID", referencedColumnName = "OrderId")
+//    @JsonManagedReference
 //    @JsonIgnore
-    Order order;
+    BiOrder order;
 
     public Long getId() {
         return id;
@@ -47,11 +52,11 @@ public class User {
         this.email = email;
     }
 
-    public Order getOrder() {
+    public BiOrder getOrder() {
         return order;
     }
 
-    public void setOrder(Order order) {
+    public void setOrder(BiOrder order) {
         this.order = order;
     }
 }

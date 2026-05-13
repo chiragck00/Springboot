@@ -1,27 +1,27 @@
-package com.springboot.learning.associations.OneToOne.Unidirectional;
+package com.springboot.learning.associations.OneToOne.Bidirectional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/order")
-public class OrderController {
+@RequestMapping("/bi/order")
+public class BiOrderController {
     @Autowired
-    OrderService orderService;
+    BiOrderService orderService;
 
     @GetMapping("/get/{id}")
-    public Order getOrder(@PathVariable Long id){
+    public BiOrder getOrder(@PathVariable Long id){
         return orderService.getOrder(id);
     }
 
     @PostMapping("/save")
-    public Order saveOrder(@RequestBody Order order){
+    public BiOrder saveOrder(@RequestBody BiOrder order){
         return orderService.saveOrder(order);
     }
 
     @PutMapping("/update/{id}")
-    public Order updateOrder(@PathVariable Long id, @RequestBody Order order){
+    public BiOrder updateOrder(@PathVariable Long id, @RequestBody BiOrder order){
         return orderService.updateOrder(id, order);
     }
 
